@@ -13,7 +13,7 @@ app.get("/db-access", async (req, res) => {
     res.json({ mesg: "Connected to the database", data: result.rows[0].now });
   } catch (err) {
     console.error("Error in access_db endpoint =>", err);
-    res.json({ message: "Database connection failed.", error: err.message });
+    res.json({ message: "Database connection failure.", error: err.message });
   }
 });
 
