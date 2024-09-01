@@ -13,18 +13,18 @@ async function getConnection() {
     const token = await credential.getToken(scopes);
     console.log(`Token generation is successful =>`, token.token);
 
-    const client = new Client({
-      user: "flightplandb",
-      database: "postgres",
-      password: token.token,
-      host: "tailwind.postgres.database.azure.com",
-      port: 5432,
-      ssl: {
-        rejectUnauthorized: false,
-      },
-    });
-    await client.connect();
-    return client;
+    // const client = new Client({
+    //   user: "flightplandb",
+    //   database: "postgres",
+    //   password: token.token,
+    //   host: "tailwind.postgres.database.azure.com",
+    //   port: 5432,
+    //   ssl: {
+    //     rejectUnauthorized: false,
+    //   },
+    // });
+    // await client.connect();
+    // return client;
 
     // return;
   } catch (error) {
