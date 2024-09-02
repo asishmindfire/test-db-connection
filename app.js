@@ -4,6 +4,7 @@ const port = 3000;
 require("dotenv").config();
 const getConnection = require("./db");
 app.use(express.json());
+const axios = require("axios");
 
 app.get("/db-access", async (req, res) => {
   try {
@@ -16,6 +17,25 @@ app.get("/db-access", async (req, res) => {
     res.json({ message: "Database connection failure.", error: err.message });
   }
 });
+
+app.get("/fake-data", async (req, res) => {
+  try {
+   const data = await getFakeData();
+    res.json({ mesg: "data received", data: data });
+  } catch (err) {
+    console.error("Error in access_db endpoint =>", err);
+    res.json({ message: "Database connection failure.", error: err.message });
+  }
+});
+async function getFakeData() {
+  try {
+    const response = await axios.get("https://reqres.in/api/users?page=1");
+    console.log(`Fake json data =>`, response.data.data[0]);
+    return response.data.data[0];
+  } catch (error) {
+    console.error("Error fetching fake data:", error);
+  }
+}
 
 // Start the server
 app.listen(port, () => {
