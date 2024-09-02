@@ -14,16 +14,16 @@ RUN npm install
 COPY . .
 
 # Copy the startup script into the container
-COPY startup.sh /usr/local/bin/startup.sh
+# COPY startup.sh /usr/local/bin/startup.sh
 
 # Make the startup script executable
-RUN chmod +x /usr/local/bin/startup.sh
+# RUN chmod +x /usr/local/bin/startup.sh
 
 # Expose the port that the app runs on
 EXPOSE 3000
 
 # Set the startup script as the entry point
-ENTRYPOINT ["/usr/local/bin/startup.sh"]
+# ENTRYPOINT ["/usr/local/bin/startup.sh"]
 
 # Command to run the application
 CMD ["node", "app.js"]
