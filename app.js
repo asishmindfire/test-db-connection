@@ -34,7 +34,7 @@ async function getFakeData() {
     console.log(`Fake json data =>`, response.data.products[0].title);
     return response.data;
   } catch (error) {
-    console.error("Error fetching fake data:", error);
+    console.error("Error fetching fake data:", error.message);
     return error
   }
 }
