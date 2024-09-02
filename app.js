@@ -29,9 +29,9 @@ app.get("/fake-data", async (req, res) => {
 });
 async function getFakeData() {
   try {
-    const response = await axios.get("https://reqres.in/api/users?page=1");
-    console.log(`Fake json data =>`, response.data.data[0]);
-    return response.data.data[0];
+    const response = await axios.get("https://dummyjson.com/products");
+    console.log(`Fake json data =>`, response.data.products[0].title);
+    return response.data;
   } catch (error) {
     console.error("Error fetching fake data:", error);
   }
