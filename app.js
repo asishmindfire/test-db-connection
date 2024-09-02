@@ -35,6 +35,7 @@ async function getFakeData() {
     return response.data;
   } catch (error) {
     console.error("Error fetching fake data:", error);
+    return error
   }
 }
 
