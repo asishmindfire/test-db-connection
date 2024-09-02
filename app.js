@@ -5,7 +5,7 @@ require("dotenv").config();
 const getConnection = require("./db");
 app.use(express.json());
 const axios = require("axios");
-
+console.log(`IDENTITY_ENDPOINT =>=>`, process.env.IDENTITY_ENDPOINT || "not there");
 app.get("/db-access", async (req, res) => {
   try {
     const client = await getConnection();
@@ -20,6 +20,7 @@ app.get("/db-access", async (req, res) => {
 
 app.get("/fake-data", async (req, res) => {
   try {
+    console.log(`IDENTITY_ENDPOINT =>=>`, process.env.IDENTITY_ENDPOINT || "not there");
    const data = await getFakeData();
     res.json({ mesg: "data received", data: data });
   } catch (err) {
