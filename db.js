@@ -14,7 +14,7 @@ async function getConnection() {
     console.log(`Token generation is successful =>`, token.token);
 
     const client = new Client({
-      user: "flightplandb",
+      user: "FlightplanDB",
       database: "postgres",
       password: token.token,
       host: "tailwind.postgres.database.azure.com",
